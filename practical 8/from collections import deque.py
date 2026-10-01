@@ -25,7 +25,7 @@ def build_tree():
     return root
 
 
-def level_order_traversal(root):
+def BFS(root):
 
     if root is None:
         return
@@ -48,4 +48,4 @@ def level_order_traversal(root):
 root = build_tree()
 
 print("\nLevel Order Traversal:")
-level_order_traversal(root)
+BFS(root)
