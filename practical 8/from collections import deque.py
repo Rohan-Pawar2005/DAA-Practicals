@@ -1,6 +1,4 @@
 from collections import deque
-
-
 class Node:
     def __init__(self, data):
         self.data = data
@@ -8,6 +6,7 @@ class Node:
         self.right = None
 
 
+# Build Binary Tree
 def build_tree():
     data = int(input("Enter the Data: "))
 
@@ -23,10 +22,8 @@ def build_tree():
     root.right = build_tree()
 
     return root
-
-
-def BFS(root):
-
+    
+def bfs_traversal(root):
     if root is None:
         return
 
@@ -43,9 +40,28 @@ def BFS(root):
 
         if temp.right:
             queue.append(temp.right)
+            
+def dfs_traversal(root):
+    if root is None:
+        return
 
+    stack = []
+    stack.append(root)
 
+    while stack:
+        temp = stack.pop()
+
+        print(temp.data, end=" ")
+        
+        if temp.right:
+            stack.append(temp.right)
+
+        if temp.left:
+            stack.append(temp.left)
 root = build_tree()
 
-print("\nLevel Order Traversal:")
-BFS(root)
+print("\nBFS Traversal:")
+bfs_traversal(root)
+
+print("\nDFS Traversal:")
+dfs_traversal(root)
